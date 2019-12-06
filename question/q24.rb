@@ -10,14 +10,15 @@ users = [user_1,user_2]
 
 users.each do |user|
   if user.has_key?(:age)
-    p "OK"
+    puts "OK"
   else
-    p "NG"
+    puts "NG"
   end
 end
-
+puts "----"
 # 方法2
 users.each do |user|
-  user.has_key?(:age) ? "OK" : "NG"
+  message = user.has_key?(:age) ?  "OK" : "NG"
+  puts message
 end
 
