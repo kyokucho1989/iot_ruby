@@ -12,3 +12,6 @@ user_data.each do |key,value|
   user_array << value
 end
 p user_array
+
+# 方法2
+p user_data.to_a.flatten
