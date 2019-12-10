@@ -4,9 +4,6 @@
 #
 
 class User
-  attr_reader :name, :offense, :defense 
-  attr_accessor :hp
-
   def initialize(**params)
     @name = params[:name]
     @age = params[:age]
@@ -14,7 +11,6 @@ class User
     @admin = params[:admin]
   end
   def data
-    # 実行結果が
     puts <<~text
     名前：#{@name}
     年齢：#{@age}
