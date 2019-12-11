@@ -13,23 +13,17 @@
 #
 
 class User
-  attr_accessor :name ,:age
-
   def initialize(**params)
     @name = params[:name]
     @age = params[:age]
   end
   def introduce
-    if @name == "あじー" then
+    if @age > 15 
       puts "こんにちは、#{@name}と申します宜しくお願いいたします"
-    elsif @name == "ゆたぼん" then
-      puts"はいさいまいど〜、#{@name}です！！！"
     else
-      puts"#{@name}です"
+      puts"はいさいまいど〜、#{@name}です！！！"
     end
   end
-
-  
 end
 
 user = User.new(name: "あじー", age: 32)
