@@ -14,9 +14,9 @@ class User
     @name = params[:name]
     @age = params[:age]
   end
-  def welcome
-    puts "ようこそ！#{@name}さん！ #{@age}才"
-  end
+#  def welcome
+#    puts "ようこそ！#{@name}さん！ #{@age}才"
+#  end
 end
 class Zoo
   BABYFEE = 100

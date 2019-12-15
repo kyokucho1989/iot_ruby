@@ -12,13 +12,14 @@
 # 
 # ゼロ秒思考
 class Item
+   attr_reader :name
    def initialize(name)
      @name = name
    end
    #インスタンス変数は外部から参照できない。参照用のメソッドを作成する必要がある
-   def name
-     @name
-   end
+#   def name
+#     @name
+#   end
  end
  
  book = Item.new("ゼロ秒思考")

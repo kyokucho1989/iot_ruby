@@ -7,9 +7,16 @@
 data_hash =  {"user_name" => "name", "learning_contents" => "contents", "learning_time" => "leraning_time"}
 data = [["田中", "JavaScript"], 30]
 data.flatten!
-data_hash["user_name"] = data[0]
-data_hash["learning_contents"] = data[1]
-data_hash["learning_time"] = data[2]
+
+#--- each with indexを使って格納
+user_keys = data_hash.keys
+
+user_keys.each.with_index do |key ,i|
+  data_hash[key] = data[i]
+end
+#data_hash["user_name"] = data[0]
+#data_hash["learning_contents"] = data[1]
+#data_hash["learning_time"] = data[2]
 
 p data_hash
 

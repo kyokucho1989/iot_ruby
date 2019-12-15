@@ -6,25 +6,30 @@
 # {name: "あじー", age: 32, address: "札幌"}
 # この場合は指定のキー tell が少ないので false が返る
 #
-# step1:キーに重複がないかチェック　→重複してたらNG　（コンパイルエラーになったから判別しなくていいや）
-# step2:キーのname,age,adress,tellを１個ずつ抜く →できなければNG
-# step3:キーが空であるかチェック　→なんかのこってればNG
-#
 user1 = {name: "あじー", age: 32, address: "札幌", tell: "090-000-000"}
 user2 = {name: "あじー", age: 32, address: "札幌"}
 user3 = {name: "あじー", age: 32, address: "札幌", tell: "090-000-000" ,hoge:100}
+
+#---------------
+#解答　1
+# step1:キーに重複がないかチェック　→重複してたらNG　（コンパイルエラーになったから判別しなくていいや）
+# step2:キーのname,age,adress,tellを１個ずつ抜く →できなければNG
+# step3:キーが空であるかチェック　→なんかのこってればNG
+#--------------
 
 
 def check_key_count(**user)
   master = [:name, :age, :address, :tell] 
   array = []
   master.each do |key|
-    check = user.delete(key)
-    if check.nil?
-      array << 0 
-    else
-      array << 1
-    end
+     check = user.delete(key)
+     if check.nil?
+       array << 0 
+     else
+       array << 1
+     end
+    array << 1 if user.has_key?(key)
+    p array
   end
   if array.count(1) == 4 && user.empty?
     puts true
@@ -33,6 +38,20 @@ def check_key_count(**user)
   end
 end
 
-check_key_count(user1)
-check_key_count(user2)
-check_key_count(user3)
+#---------------
+#解答　2
+# 4つのキーが全て存在し、なおかつhashのサイズが4であればOK
+# --------------
+
+def check_key_count2(**params)
+ if (params.has_key?(:name && :age && :adress && :tell)  && params.size == 4 )
+   p true
+ else
+   p false
+ end
+end
+check_key_count2(user1)
+check_key_count2(user2)
+check_key_count2(user3)
+
+
