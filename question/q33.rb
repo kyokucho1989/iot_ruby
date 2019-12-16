@@ -50,8 +50,24 @@ def check_key_count2(**params)
    p false
  end
 end
-check_key_count2(user1)
-check_key_count2(user2)
-check_key_count2(user3)
+
+#---------------
+#解答　3
+# 4つのキーの配列を作成。
+# ハッシュを読み取り、そのキーの配列を取得
+# 取得したキーをソートして、あらかじめ作っておいたキー配列を一致するか確認
+# --------------
+def check_key_count3(**params)
+  expected_keys = [:name, :age, :address, :tell]
+  if params.keys.sort! == expected_keys.sort! 
+    p true
+  else
+    p false
+  end
+end
+
+check_key_count3(user1)
+check_key_count3(user2)
+check_key_count3(user3)
 
 
