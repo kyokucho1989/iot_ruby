@@ -13,14 +13,21 @@
 require 'prime'
 puts "簡単にしたいルートの中身を入力してください"
 number = gets
-puts number
 prime_array = Prime.prime_division(number.to_i)
-p prime_array
 root_a = 1
 root_b = 1
 prime_array.each do |p,e|
   sho,amari = e.divmod(2)
-  root_a = root_a * p * sho
-  root_b = root_b * p ** 
-  p "商：#{sho} 余り #{amari}"
+  root_a = root_a * p ** sho
+  root_b = root_b * p ** amari
+#  p "商：#{sho} 余り #{amari}"
+ # p "#{root_a}√ #{root_b} "
 end
+if root_a == 1 && root_b != 1
+  puts "√ #{root_b} "
+elsif root_a != 1 && root_b == 1
+  puts "#{root_a} "
+else
+ puts "#{root_a}√ #{root_b} "
+end
+
