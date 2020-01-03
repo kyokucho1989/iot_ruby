@@ -9,16 +9,11 @@ user_data = {["田中", "HTML"]=>30, ["斎藤", "JavaScript"]=>50}
 keys = ["user_name","learning_contents","learning_time"]
 new_data = user_data.flatten
 
-new_values = user_data.keys[0]
-new_values <<  user_data.values[0]
-
-user_hash = Hash[keys.zip(new_values)]
-new_values = user_data.keys[1]
-new_values <<  user_data.values[1]
-
-user_hash2 = Hash[keys.zip(new_values)]
+index = (0...user_data.size).to_a
+user_hash = index.map do |i|
+  new_values = user_data.keys[i]
+  new_values <<  user_data.values[i]
+  user_hash = Hash[keys.zip(new_values)]
+end
 
 p user_hash
-p user_hash2
-user_array = [user_hash , user_hash2]
-p user_array
