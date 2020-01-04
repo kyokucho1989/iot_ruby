@@ -50,7 +50,7 @@ def price_calc(items)
   sum_price = 0
   items.each do |item|
     if item[:count].nil?
-      price = 0
+      price = 0  #初期値を設定しているので不要との指摘 →無料の場合の単価表示がおかしくなるためそのまま残す。
       #sum_price = sum_price + price
       puts "#{item[:name]} (無料!):#{price}円"
     else

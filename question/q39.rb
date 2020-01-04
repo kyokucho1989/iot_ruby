@@ -25,7 +25,7 @@ prime_array.each do |p,e|
 end
 if root_a == 1 && root_b != 1
   puts "√ #{root_b} "
-elsif root_a != 1 && root_b == 1
+elsif root_b == 1 #root_a != 1 && root_b == 1 から修正
   puts "#{root_a} "
 else
  puts "#{root_a}√ #{root_b} "
