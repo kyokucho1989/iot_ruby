@@ -4,7 +4,7 @@ class User
     @last_name = "Kondo"
     @birthday = "2112/1/1"
     @age = 30
-    @birtplace = "Nagano"
+    @birthplace = "Nagano"
     @hobby = "IoT"
   end
 
