@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
+  
   def new
     @user = User.new
   end
@@ -10,8 +11,12 @@ class UsersController < ApplicationController
   def create
     # Strong Parameter の記述
     User.create(user_params)
-    redirect_to :action => "index"
+    #redirect_to :action => "index"  リダイレクトがいらなくなる。
   end
+   
+  
+  
+
 
   def edit
     @user = User.find(params[:id])
@@ -20,13 +25,14 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     user.update(user_params)
-    redirect_to :action => "index"
+  #  redirect_to :action => "index" リダイレクトは不要
+
   end
   
   def destroy
     user = User.find(params[:id])
-    user.delete
-    redirect_to :action => "index"
+    user.destroy
+   # redirect_to :action => "index" リダイレクトは不要
   end
   private
   def user_params
