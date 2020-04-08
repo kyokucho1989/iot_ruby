@@ -59,7 +59,9 @@ def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
-  array.map!{|str| str.to_i}
+  # array.map!{|str| str.to_i}
+  # &とシンボルを使って簡単に書く
+  array.map!(&:to_i)
   # 以下は変更しないで下さい
   p array
 end
