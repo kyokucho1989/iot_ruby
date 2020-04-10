@@ -90,11 +90,8 @@ def q10
 
   # 以下に回答を記載
   foods.each do |item|
-    if item.include? "うに"
-      puts "#{item}...好物です"
-    else
-      puts "#{item}...まぁまぁ好きです"
-    end  
+   message = (item.include? "うに")?  "好物です" : "まぁまぁ好きです"
+   p message
   end
 end
 
