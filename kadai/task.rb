@@ -99,8 +99,9 @@ def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
-  f_sports = sports.flatten # flattenで全部展開
-  true_sports = f_sports.uniq
+  #f_sports = sports.flatten # flattenで全部展開
+  #true_sports = f_sports.uniq
+  true_sports = sports.flatten.uniq
   puts "ユーザーの趣味一覧"
   true_sports.each.with_index(1) do |item,i|
     puts "No.#{i} #{item}"
@@ -119,7 +120,8 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
-  p user_data.merge(update_data)
+  user_data.merge!(update_data)
+  p user_data
 end
 
 def q14
