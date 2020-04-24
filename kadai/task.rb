@@ -238,14 +238,15 @@ class Zoo
     @senior_fee = params[:entry_fee][:senior]
   end
   def info_entry_fee(user)
-    if user.age < 6 
-      entry_fee = @infant_fee
-    elsif user.age < 13
-      entry_fee = @children_fee
-    elsif user.age < 65
-      entry_fee = @adult_fee
-    elsif user.age < 121
-      entry_fee = @senior_fee
+    entry_fee = case user.age
+    when 0..5 
+      @infant_fee
+    when 6..12
+      @children_fee
+    when 13..65
+      @adult_fee
+    when 66..120
+      @senior_fee
     end
     puts "#{user.name}さんの入場料金は　#{entry_fee}円です。"
   end
