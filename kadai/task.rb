@@ -269,3 +269,112 @@ def q20
     zoo.info_entry_fee(user)
   end
 end
+
+
+def q21_return_hand(q21_dice_array)
+  q21_hand = '??'
+  # 戻り値に役を設定
+
+  # 以下に回答を記載
+  # q21_sorted_dices = q21_dice_array.sort
+  # if q21_sorted_dices == [1,1,1] 
+  #   'ピンゾロ'
+  # elsif q21_sorted_dices == [1,2,3]
+  #   'ヒフミ'
+  # elsif q21_sorted_dices.uniq.size == 1
+  #   'ゾロ目'
+  # else
+  #   '目なし'
+  # end
+end
+
+def q21_disp_hand(q21_dice_array)
+  #　ここは変更しないでください
+  q21_hand = q21_return_hand(q21_dice_array)
+  puts <<~TEXT
+  出目：#{q21_dice_array} 　役： #{q21_hand}
+  TEXT
+end
+
+def q21
+  #　ここは変更しないでください
+  q21_disp_hand([2,3,1])
+  q21_disp_hand([2,1,3])
+  q21_disp_hand([1,1,1])
+  q21_disp_hand([3,3,3])
+  q21_disp_hand([5,3,1])
+end
+
+
+def q22_return_win_or_lose(q22_my_hand,q22_oponent_hand)
+
+  strength_relationship = ['ヒフミ','目なし','ゾロ目','ピンゾロ']
+
+  # 以下に回答を記載
+  # my_hand_rank = strength_relationship.index(q22_my_hand)
+  # opponent_hand_rank = strength_relationship.index(q22_oponent_hand)
+  # if my_hand_rank < opponent_hand_rank
+  #   '負け...'
+  # elsif my_hand_rank == opponent_hand_rank
+  #   '引き分け'
+  # else
+  #   '勝ち！'
+  # end
+
+  # 回答ここまで
+end
+
+def q22_judge_hand(q22_my_dices, q22_opponent_dices)
+  # 以下は変更しなくてよい
+  q22_my_hand = q21_return_hand(q22_my_dices)
+  q22_oponent_hand = q21_return_hand(q22_opponent_dices)
+  q22_win_or_lose = q22_return_win_or_lose(q22_my_hand, q22_oponent_hand)
+
+  puts <<~TEXT
+  自分 出目：#{q22_my_dices} （#{q22_my_hand}） /相手 出目：#{q22_opponent_dices} （#{q22_oponent_hand}）
+  #{q22_win_or_lose}
+  TEXT
+
+end
+
+def q22
+  #　ここは変更しないでください
+  q22_judge_hand([2,3,1],[1,1,1])
+  q22_judge_hand([5,5,5],[2,2,2])
+  q22_judge_hand([2,2,2],[6,3,2])
+end
+
+
+def q23_judge_hand(q23_my_dices,q23_opponent_dices)
+  q23_my_hand = q21_return_hand(q23_my_dices)
+  q23_oponent_hand = q21_return_hand(q23_opponent_dices)
+  q23_win_or_lose = q22_return_win_or_lose(q23_my_hand, q23_oponent_hand)
+  q23_gain_point = 99999
+  
+  q23_point_map = [
+    [0,-100,-600,-1500],
+    [100,0,-200,-600],
+    [600,100,0,-500],
+    [1500,600,500,0]
+  ]
+
+  # 以下に回答を記載
+  # strength_relationship = ['ヒフミ','目なし','ゾロ目','ピンゾロ']
+  # my_hand_rank = strength_relationship.index(q23_my_hand)
+  # opponent_hand_rank = strength_relationship.index(q23_oponent_hand)
+  # q23_gain_point =  q23_point_map[my_hand_rank][opponent_hand_rank]
+  # 回答ここまで
+  puts <<~TEXT
+  自分 出目：#{q23_my_dices} （#{q23_my_hand}） /相手 出目：#{q23_opponent_dices} （#{q23_oponent_hand}）
+  #{q23_win_or_lose}
+  獲得ポイント: #{q23_gain_point}
+  TEXT
+
+end
+
+def q23
+  #　ここは変更しないでください
+  q23_judge_hand([2,5,1],[1,1,1])
+  q23_judge_hand([6,6,6],[3,3,3])
+  q23_judge_hand([1,1,1],[1,3,2])
+end
